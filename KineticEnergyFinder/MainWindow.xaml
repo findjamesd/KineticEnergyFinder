@@ -1,0 +1,124 @@
+﻿<Window x:Class="KineticEnergyFinder.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KineticEnergyFinder"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Content="Object's mass"
+               HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+               FontSize="30"/>
+
+        <TextBox  
+            Name="EnteredMass"
+            Grid.Row="0" 
+            Grid.Column="1" 
+            Text="{Binding EnteredMass}" 
+            HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+            FontSize="30"
+            LostFocus="EnteredMass_LostFocus"
+        />
+
+        <ComboBox Grid.Row="0" Grid.Column="2" 
+                  FontSize="30"
+                  HorizontalContentAlignment="Center"
+                  VerticalContentAlignment="Center"
+                  Name="MassUnits"
+                  SelectionChanged="MassUnits_SelectionChanged"
+                  >
+            <ComboBoxItem IsSelected="True" 
+                          Content="Kilogram (kg)" 
+                          Name="kg"/>
+            <ComboBoxItem Content="Gram (g)" 
+                          Name="g"
+                          />
+            <ComboBoxItem Content="Ounce (oz)"
+                          Name="oz"
+                          />
+        </ComboBox>
+        
+        
+        <Label Grid.Row="1" Grid.Column="0" Content="Velocity"
+               HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+               FontSize="30"/>
+
+        <TextBox Name="EnteredVelocity" 
+                 Grid.Row="1" Grid.Column="1" 
+                 Text="{Binding EnteredVelocity}" 
+                 HorizontalContentAlignment="Center"
+                 VerticalContentAlignment="Center"
+                 FontSize="30"
+                 LostFocus="EnteredVelocity_LostFocus"
+        />
+       
+        <ComboBox Grid.Row="1" Grid.Column="2" 
+                  FontSize="30"
+                  HorizontalContentAlignment="Center"
+                  VerticalContentAlignment="Center"
+                  Name="VelocityUnits"
+                  SelectionChanged="VelocityUnits_SelectionChanged"
+                  >
+            <ComboBoxItem IsSelected="True" 
+                          Content="Meter/Sec" 
+                          Name="ms"/>
+            <ComboBoxItem Content="Kilometer/Hour" 
+                          Name="kmh"
+                          />
+            <ComboBoxItem Content="Feet/Sec"
+                          Name="fts"
+                          />
+        </ComboBox>
+
+        <Label Grid.Row="2" Grid.Column="0" Content="Kinetic Energy"
+               HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+               FontSize="30"/>
+
+        <Label Grid.Row="2" Grid.Column="1" 
+               Content="{Binding KineticEnergyValue}"
+               HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+               FontSize="30"/>
+
+        <ComboBox Grid.Row="2" Grid.Column="2" 
+                  FontSize="30"
+                  HorizontalContentAlignment="Center"
+                  VerticalContentAlignment="Center"
+                  Name="KineticEnergyUnit"
+                  SelectionChanged="KineticEnergyUnit_SelectionChanged"
+                  >
+            <ComboBoxItem IsSelected="True" 
+                          Content="Joules" 
+                          Name="j"/>
+            <ComboBoxItem Content="Kilojoule" 
+                          Name="kj"/>
+        </ComboBox>
+
+        <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" 
+               Content="{Binding ErrorMessage}"
+               HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+               FontSize="30"/>
+
+        <Button Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" 
+                Name="CalcKineticEnergy" Content="Calculate Kinetic Energy"
+                FontSize="35"
+                Margin="5"
+                Click="CalcKineticEnergy_Click"
+                />
+
+    </Grid>
+</Window>

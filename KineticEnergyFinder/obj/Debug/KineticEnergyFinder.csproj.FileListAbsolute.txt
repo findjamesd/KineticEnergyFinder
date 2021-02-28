@@ -1,0 +1,15 @@
+C:\Users\james\OneDrive\Documents\SCHOOL WORK\PROG8010 - SOFTWARE DEVELOPMENT\CODE\Assignments\KineticEnergyFinder\KineticEnergyFinder\bin\Debug\KineticEnergyFinder.exe.config
+C:\Users\james\OneDrive\Documents\SCHOOL WORK\PROG8010 - SOFTWARE DEVELOPMENT\CODE\Assignments\KineticEnergyFinder\KineticEnergyFinder\bin\Debug\KineticEnergyFinder.exe
+C:\Users\james\OneDrive\Documents\SCHOOL WORK\PROG8010 - SOFTWARE DEVELOPMENT\CODE\Assignments\KineticEnergyFinder\KineticEnergyFinder\bin\Debug\KineticEnergyFinder.pdb
+C:\Users\james\OneDrive\Documents\SCHOOL WORK\PROG8010 - SOFTWARE DEVELOPMENT\CODE\Assignments\KineticEnergyFinder\KineticEnergyFinder\obj\Debug\KineticEnergyFinder.csprojAssemblyReference.cache
+C:\Users\james\OneDrive\Documents\SCHOOL WORK\PROG8010 - SOFTWARE DEVELOPMENT\CODE\Assignments\KineticEnergyFinder\KineticEnergyFinder\obj\Debug\MainWindow.g.cs
+C:\Users\james\OneDrive\Documents\SCHOOL WORK\PROG8010 - SOFTWARE DEVELOPMENT\CODE\Assignments\KineticEnergyFinder\KineticEnergyFinder\obj\Debug\App.g.cs
+C:\Users\james\OneDrive\Documents\SCHOOL WORK\PROG8010 - SOFTWARE DEVELOPMENT\CODE\Assignments\KineticEnergyFinder\KineticEnergyFinder\obj\Debug\KineticEnergyFinder_MarkupCompile.cache
+C:\Users\james\OneDrive\Documents\SCHOOL WORK\PROG8010 - SOFTWARE DEVELOPMENT\CODE\Assignments\KineticEnergyFinder\KineticEnergyFinder\obj\Debug\KineticEnergyFinder_MarkupCompile.lref
+C:\Users\james\OneDrive\Documents\SCHOOL WORK\PROG8010 - SOFTWARE DEVELOPMENT\CODE\Assignments\KineticEnergyFinder\KineticEnergyFinder\obj\Debug\MainWindow.baml
+C:\Users\james\OneDrive\Documents\SCHOOL WORK\PROG8010 - SOFTWARE DEVELOPMENT\CODE\Assignments\KineticEnergyFinder\KineticEnergyFinder\obj\Debug\KineticEnergyFinder.g.resources
+C:\Users\james\OneDrive\Documents\SCHOOL WORK\PROG8010 - SOFTWARE DEVELOPMENT\CODE\Assignments\KineticEnergyFinder\KineticEnergyFinder\obj\Debug\KineticEnergyFinder.Properties.Resources.resources
+C:\Users\james\OneDrive\Documents\SCHOOL WORK\PROG8010 - SOFTWARE DEVELOPMENT\CODE\Assignments\KineticEnergyFinder\KineticEnergyFinder\obj\Debug\KineticEnergyFinder.csproj.GenerateResource.cache
+C:\Users\james\OneDrive\Documents\SCHOOL WORK\PROG8010 - SOFTWARE DEVELOPMENT\CODE\Assignments\KineticEnergyFinder\KineticEnergyFinder\obj\Debug\KineticEnergyFinder.csproj.CoreCompileInputs.cache
+C:\Users\james\OneDrive\Documents\SCHOOL WORK\PROG8010 - SOFTWARE DEVELOPMENT\CODE\Assignments\KineticEnergyFinder\KineticEnergyFinder\obj\Debug\KineticEnergyFinder.exe
+C:\Users\james\OneDrive\Documents\SCHOOL WORK\PROG8010 - SOFTWARE DEVELOPMENT\CODE\Assignments\KineticEnergyFinder\KineticEnergyFinder\obj\Debug\KineticEnergyFinder.pdb
