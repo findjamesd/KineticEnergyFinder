@@ -84,7 +84,7 @@ namespace KineticEnergyFinder
                 HandleErrorSituation("Please enter a valid velocity value. \r\n", "velocity");
             }
 
-            KineticEnergyValue = ConvertKineticEnergyValue(CalcKineticEnergy(EnteredMass, EnteredVelocity), KEUnit);
+            KineticEnergyValue = ConvertKineticEnergyValue(CalcKineticEnergy(PermanentEnteredObjectMass, PermanentEnteredObjectVelocity), KEUnit);
 
         }
         #endregion
@@ -103,7 +103,7 @@ namespace KineticEnergyFinder
         public void KEUnitChanged(string name)
         {
             KEUnit = name;
-            KineticEnergyValue = ConvertKineticEnergyValue(CalcKineticEnergy(EnteredMass, EnteredVelocity), KEUnit);
+            KineticEnergyValue = ConvertKineticEnergyValue(CalcKineticEnergy(PermanentEnteredObjectMass, PermanentEnteredObjectVelocity), KEUnit);
         }
         #endregion
 
@@ -141,8 +141,8 @@ namespace KineticEnergyFinder
         public double CalcKineticEnergy(double mass, double velocity)
         {
             return FORMULA_MULTIPLIER
-                * ConvertMassValue(mass, massUnit)
-                * Math.Pow(ConvertVelocityValue(velocity, velocityUnit), 2);
+                * ConvertMassValue(mass, "kg")
+                * Math.Pow(ConvertVelocityValue(velocity, "ms"), 2);
         }
         #endregion
 
@@ -211,12 +211,24 @@ namespace KineticEnergyFinder
         #region SaveOriginalVariables
         public void SavePermanentVariable(string field, string userInput)
         {
-            if (field == "velocity")
+            try
             {
-                PermanentEnteredObjectVelocity = Convert.ToDouble(userInput);
+                bool isValid = Convert.ToDouble(userInput) >= 0;
+
+                if (isValid)
+                {
+                    if (field == "velocity") PermanentEnteredObjectVelocity = Convert.ToDouble(userInput);
+
+                    else PermanentEnteredObjectMass = Convert.ToDouble(userInput);
+                }
             }
-            else
-                PermanentEnteredObjectMass = Convert.ToDouble(userInput);
+            catch
+            {
+                if (field == "velocity") HandleErrorSituation("Please enter a valid velocity value. \r\n", "velocity");
+
+                else HandleErrorSituation("Please enter a valid mass value. \r\n", "mass");
+
+            }
         }
         #endregion
 

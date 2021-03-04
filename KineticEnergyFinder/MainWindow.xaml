@@ -5,120 +5,279 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KineticEnergyFinder"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
+        Title="Kinetic Energy Finder" Height="450" MinWidth="800" Width="900"
+        >
+    <Window.Resources>
+        <Style TargetType="TextBox" x:Key="tbTemp">
+            <Setter Property="HorizontalContentAlignment" Value="Right" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="FontSize" Value="30" />
+            <Setter Property="BorderThickness" Value="0, 0, 0, 1" />
+            <Setter Property="Background" Value="#EBEBEB" />
+            <Setter Property="BorderBrush" Value="black" />
+        </Style>
 
-        <Label Grid.Row="0" Grid.Column="0" Content="Object's mass"
-               HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
-               FontSize="30"/>
+        <Style TargetType="Label" x:Key="labelTemp">
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="FontSize" Value="17" />
+            <Setter Property="Foreground" Value="#474747" />
+            
+        </Style>
 
-        <TextBox  
-            Name="EnteredMass"
-            Grid.Row="0" 
-            Grid.Column="1" 
-            Text="{Binding EnteredMass}" 
-            HorizontalContentAlignment="Center"
-            VerticalContentAlignment="Center"
-            FontSize="30"
-            LostFocus="EnteredMass_LostFocus"
-        />
+        <Style TargetType="Border" x:Key="borderTemp">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Background" Value="#EBEBEB" />
+            <Setter Property="BorderThickness" Value="0, 0, 0, 0" />
+            <Setter Property="BorderBrush" Value="#EBEBEB" />
+            <Setter Property="Padding" Value="10 " />
+            <Setter Property="Height" Value="80" />
 
-        <ComboBox Grid.Row="0" Grid.Column="2" 
-                  FontSize="30"
-                  HorizontalContentAlignment="Center"
-                  VerticalContentAlignment="Center"
-                  Name="MassUnits"
-                  SelectionChanged="MassUnits_SelectionChanged"
-                  >
-            <ComboBoxItem IsSelected="True" 
-                          Content="Kilogram (kg)" 
-                          Name="kg"/>
-            <ComboBoxItem Content="Gram (g)" 
-                          Name="g"
-                          />
-            <ComboBoxItem Content="Ounce (oz)"
-                          Name="oz"
-                          />
-        </ComboBox>
-        
-        
-        <Label Grid.Row="1" Grid.Column="0" Content="Velocity"
-               HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
-               FontSize="30"/>
+        </Style>
 
-        <TextBox Name="EnteredVelocity" 
-                 Grid.Row="1" Grid.Column="1" 
-                 Text="{Binding EnteredVelocity}" 
-                 HorizontalContentAlignment="Center"
-                 VerticalContentAlignment="Center"
-                 FontSize="30"
-                 LostFocus="EnteredVelocity_LostFocus"
-        />
-       
-        <ComboBox Grid.Row="1" Grid.Column="2" 
-                  FontSize="30"
-                  HorizontalContentAlignment="Center"
-                  VerticalContentAlignment="Center"
-                  Name="VelocityUnits"
-                  SelectionChanged="VelocityUnits_SelectionChanged"
-                  >
-            <ComboBoxItem IsSelected="True" 
-                          Content="Meter/Sec" 
-                          Name="ms"/>
-            <ComboBoxItem Content="Kilometer/Hour" 
-                          Name="kmh"
-                          />
-            <ComboBoxItem Content="Feet/Sec"
-                          Name="fts"
-                          />
-        </ComboBox>
+        <Style TargetType="ComboBox" x:Key="cmbTemp">
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="BorderThickness" Value="0, 0, 0, 0" />
+            <Setter Property="BorderBrush" Value="#EBEBEB" />
+        </Style>
 
-        <Label Grid.Row="2" Grid.Column="0" Content="Kinetic Energy"
-               HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
-               FontSize="30"/>
+        <Style x:Key="backgroundGradient" TargetType="{x:Type Border}">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#9FD0D0" Offset="1"/>
+                        <GradientStop Color="#51A3A3" Offset="0"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
 
-        <Label Grid.Row="2" Grid.Column="1" 
-               Content="{Binding KineticEnergyValue}"
-               HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
-               FontSize="30"/>
+        </Style>
+    </Window.Resources>
 
-        <ComboBox Grid.Row="2" Grid.Column="2" 
-                  FontSize="30"
-                  HorizontalContentAlignment="Center"
-                  VerticalContentAlignment="Center"
-                  Name="KineticEnergyUnit"
-                  SelectionChanged="KineticEnergyUnit_SelectionChanged"
-                  >
-            <ComboBoxItem IsSelected="True" 
-                          Content="Joules" 
-                          Name="j"/>
-            <ComboBoxItem Content="Kilojoule" 
-                          Name="kj"/>
-        </ComboBox>
+    <Border Style="{StaticResource backgroundGradient}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
 
-        <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" 
-               Content="{Binding ErrorMessage}"
-               HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
-               FontSize="30"/>
+                <Border Grid.Row="1" 
+                        Grid.Column="1" 
+                        Grid.ColumnSpan="3" 
+                        Style="{StaticResource borderTemp}"
+                        CornerRadius="20,20,0,0"
+                >
+                    <StackPanel VerticalAlignment="Center">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="6*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                        
+                            <Label Grid.Row="1" 
+                                   Grid.Column="0" 
+                                   Content="Mass"
+                                   Style="{StaticResource labelTemp}" 
+                                   HorizontalAlignment="Center" 
+                                   VerticalAlignment="Bottom"
+                            />
 
-        <Button Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" 
-                Name="CalcKineticEnergy" Content="Calculate Kinetic Energy"
-                FontSize="35"
+                            <TextBox  
+                                Name="EnteredMass"
+                                Grid.Row="1" 
+                                Grid.Column="1" 
+                                Text="{Binding EnteredMass}" 
+                                LostFocus="EnteredMass_LostFocus"
+                                Style="{StaticResource tbTemp}"/>
+
+                            <ComboBox Grid.Row="1" 
+                                      Grid.Column="2" 
+                                      Style="{StaticResource cmbTemp}"
+                                      Name="MassUnits"
+                                      SelectionChanged="MassUnits_SelectionChanged"
+                                      BorderThickness="0, 0, 0, 1.5"
+                                      Background="#EBEBEB"
+                                      BorderBrush="black"
+                                      >
+                                <ComboBoxItem 
+                                    IsSelected="True" 
+                                    Content="Kilogram (kg)" 
+                                    Name="kg"/>
+                                <ComboBoxItem 
+                                    Content="Gram (g)" 
+                                    Name="g"/>
+                                <ComboBoxItem 
+                                    Content="Ounce (oz)"
+                                    Name="oz"/>
+                            </ComboBox>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+
+                <Border Grid.Row="2" 
+                        Grid.Column="1" 
+                        Grid.ColumnSpan="3" 
+                        Style="{StaticResource borderTemp}"
+                >
+                    <StackPanel VerticalAlignment="Center">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="6*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                        
+                            <Label Grid.Row="1" 
+                                   Grid.Column="0" 
+                                   Content="Velocity"
+                                   Style="{StaticResource labelTemp}"/>
+
+                            <TextBox  
+                                Name="EnteredVelocity"
+                                Grid.Row="1" 
+                                Grid.Column="1" 
+                                Text="{Binding EnteredVelocity}" 
+                                LostFocus="EnteredVelocity_LostFocus"
+                                Style="{StaticResource tbTemp}"/>
+
+                            <ComboBox Grid.Row="1" 
+                                      Grid.Column="2" 
+                                      Style="{StaticResource cmbTemp}"
+                                      Name="VelocityUnits"
+                                      SelectionChanged="VelocityUnits_SelectionChanged"
+                                      BorderThickness="0, 0, 0, 1.5"
+                                      Background="#EBEBEB"
+                                      BorderBrush="black"
+                                      >
+                                <ComboBoxItem IsSelected="True" 
+                                              Content="Meter/Sec" 
+                                              Name="ms"/>
+                                <ComboBoxItem Content="Kilometer/Hour" 
+                                              Name="kmh"
+                                              />
+                                <ComboBoxItem Content="Feet/Sec"
+                                              Name="fts"
+                                              />
+                            </ComboBox>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+
+                <Border Grid.Row="3" 
+                        Grid.Column="1" 
+                        Grid.ColumnSpan="3" 
+                        Style="{StaticResource borderTemp}"
+                        CornerRadius="0,0,20,20"
+                >
+                    <StackPanel VerticalAlignment="Center">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.5*"/>
+                                <ColumnDefinition Width="6*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                        </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+
+                            <Label Grid.Row="1" 
+                                   Grid.Column="0" 
+                                   Content="Kinetic Energy"
+                                   Style="{StaticResource labelTemp}"/>
+
+                            <Label  
+                                Name="KineticEnergyValue"
+                                Grid.Row="1" 
+                                Grid.Column="1" 
+                                Content="{Binding KineticEnergyValue}"
+                                HorizontalContentAlignment="Right"
+                                VerticalContentAlignment="Center"
+                                Margin="0,0,8,0"
+                                FontSize="30"
+                            />
+
+
+                            <ComboBox Grid.Row="1" 
+                                      Grid.Column="2" 
+                                      Style="{StaticResource cmbTemp}"
+                                      Name="KineticEnergyUnit"
+                                      SelectionChanged="KineticEnergyUnit_SelectionChanged">
+                                <ComboBoxItem IsSelected="True" 
+                                  Content="Joules" 
+                                  Name="j"/>
+                                <ComboBoxItem Content="Kilojoule" 
+                                  Name="kj"/>
+                            </ComboBox>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+
+            
+            <Label Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" 
+                   Content="{Binding ErrorMessage}"
+                   HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                   FontSize="23"
+                   Foreground="#C84630"
+                   Height="40"
+            />
+
+
+            <Button 
+                Foreground="#333333"
+                FontSize="20"
+                FontWeight="Medium"
                 Margin="5"
+                Grid.Row="5" 
+                Grid.Column="1" 
+                Grid.ColumnSpan="4"
+                Name="CalcKineticEnergy" 
+                Content="Calculate Kinetic Energy"
                 Click="CalcKineticEnergy_Click"
-                />
+            >
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="White"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#F5F5F5" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
 
-    </Grid>
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Height="65" Width="395" CornerRadius="10" 
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+        </Grid>
+    </Border>
 </Window>
